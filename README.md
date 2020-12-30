@@ -1,1 +1,1 @@
-### Project do in NLW-1 of Rockeatseat. I do only backend (server)
+### Project done in NLW-1 of Rockeatseat. I just did backend (server)

@@ -1,0 +1,32 @@
+version: "3"
+services:    
+    postgres:
+        container_name: postgres
+        image: postgres:12
+        ports:
+            - "5432:5432"
+        volumes:
+            - $HOME/docker/volumes/postgres12:/var/lib/postgresql/data
+        restart: always
+        environment:
+            - POSTGRES_PASSWORD=${DB_PASS}
+    nlw1-app:
+        container_name: nlw1-app
+        depends_on:
+            - postgres
+        build: .
+        image: nlw-1
+        restart: always
+        command: npm start
+        volumes:
+            - ./dist:/usr/programming/nlw-1/dist
+            - .env:/usr/programming/nlw-1/.env
+        ports:
+            - "3001:3001"
+        environment: 
+            - DB_HOST=${DB_HOST}
+            - DB_USER=${DB_USER}
+            - DB_PASS=${DB_PASS}
+            - DB_DATABASE=${DB_DATABASE}
+        links:
+            - "postgres"

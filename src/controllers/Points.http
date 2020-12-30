@@ -1,0 +1,13 @@
+POST http://localhost:3001/points HTTP/1.1
+content-type: application/json
+
+{ 
+    "name": "Teste", 
+    "email": "teste@gmail.com", 
+    "whatsapp": "999999999", 
+    "latitude": 123456.30, 
+    "longitude": 654321.30, 
+    "city": "BRASILIA", 
+    "uf": "DF",
+    "items": [1,2]
+}

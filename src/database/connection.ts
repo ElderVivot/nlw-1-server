@@ -1,12 +1,13 @@
 import knex from 'knex'
+import 'dotenv/config'
 
 const connection = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'docker',
-        database: 'nlw_1'
+        host: process.env.DB_HOST || 'localhost',
+        user: process.env.DB_USER || 'postgres',
+        password: process.env.DB_PASS || 'postgres',
+        database: process.env.DB_DATABASE || 'db_example'
     },
     useNullAsDefault: true
 })
