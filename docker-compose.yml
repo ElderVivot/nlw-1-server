@@ -18,9 +18,9 @@ services:
         image: nlw-1
         restart: always
         command: npm start
-        volumes:
-            - ./dist:/usr/programming/nlw-1/dist
-            - .env:/usr/programming/nlw-1/.env
+        # volumes:
+        #     - ./dist:/usr/programming/nlw-1/dist
+        #     - .env:/usr/programming/nlw-1/.env
         ports:
             - "3001:3001"
         environment: 
